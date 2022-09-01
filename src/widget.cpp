@@ -14,6 +14,16 @@
 #include <QNetworkReply>
 #include "webengineview.h"
 #include <qtabbar.h>
+
+#include <QMenuBar>
+#include <QMenu>
+#include <QDir>
+#include <QDesktopServices>
+#include <QRegularExpression>
+
+#include <MenuHelper.h>
+
+#include <QMouseEvent>
 using util::UrlIsValid;
 static constexpr const char* DEFAULT_PAGE_URL = "https://google.com";
 Widget::Widget(QWidget* parent)
@@ -96,15 +106,6 @@ void Widget::SetupShortcuts()
   });
   
 }
-
-#include <QMenuBar>
-#include <QMenu>
-#include <QDir>
-#include <QDesktopServices>
-#include <QRegularExpression>
-
-#include <MenuHelper.h>
-
 
 void Widget::PrepareLayout()
 {
@@ -267,7 +268,7 @@ void Widget::TabBarCurrentChanged(int index)
   //The setEnabled calls are to ensure the selected tab gains focus 
 }
 
-#include <QMouseEvent>
+
 void Widget::mousePressEvent(QMouseEvent* event)
 {
   Qt::MouseButton mb = event->button();
